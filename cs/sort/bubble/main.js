@@ -1,5 +1,4 @@
 import { bubbleSort } from "./default.js";
-import { unsorted } from "../data.js";
+import { run } from "../utils.js";
 
-console.log(unsorted);
-console.log(bubbleSort(unsorted));
+run(bubbleSort);
