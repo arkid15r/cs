@@ -1,10 +1,16 @@
-import { performance } from "perf_hooks";
-import { random, sortedAsc, sortedDesc } from "./data.js";
+/* eslint-disable require-jsdoc */
 
-export function swap(arr, id1, id2) {
-  let tmp = arr[id1];
-  arr[id1] = arr[id2];
-  arr[id2] = tmp;
+import { performance } from "perf_hooks";
+import {
+  random100K,
+  sortedAsc100K,
+  sortedDesc100K,
+} from "../../data/int/main.js";
+
+export function swap(array, id1, id2) {
+  const tmp = array[id1];
+  array[id1] = array[id2];
+  array[id2] = tmp;
 }
 
 function verify(sorted, original) {
@@ -23,25 +29,27 @@ function verify(sorted, original) {
 }
 
 export function run(sorter) {
-  let array, original, stats;
+  let array;
+  let original;
+  let stats;
 
-  array = Array.from(random);
-  original = Array.from(random);
+  array = Array.from(random100K);
+  original = Array.from(random100K);
   stats = new Stats("Average case (random): ");
   sorter(array, stats);
   verify(array, original);
   stats.print();
 
   stats = new Stats("Best case (sorted asc):");
-  array = Array.from(sortedAsc);
-  original = Array.from(sortedAsc);
+  array = Array.from(sortedAsc100K);
+  original = Array.from(sortedAsc100K);
   sorter(array, stats);
   verify(array, original);
   stats.print();
 
   stats = new Stats("Worst case (sorted desc):");
-  array = Array.from(sortedDesc);
-  original = Array.from(sortedDesc);
+  array = Array.from(sortedDesc100K);
+  original = Array.from(sortedDesc100K);
   sorter(array, stats);
   verify(array, original);
   stats.print();

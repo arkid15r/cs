@@ -1,10 +1,14 @@
 /* Insertion sort. */
+/* eslint-disable require-jsdoc */
 
 export function insertionSort(arr, stats) {
   stats.setStartTime();
 
-  let i, j, k, size;
-  size = arr.length;
+  let i;
+  let j;
+  let k;
+
+  const size = arr.length;
   for (i = 1; i < size; i++) {
     stats.incIterations();
 

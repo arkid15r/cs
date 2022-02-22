@@ -1,11 +1,13 @@
 /* Bubble sort. */
 
-import { swap } from "../utils.js";
+/* eslint-disable require-jsdoc */
+
+import { swap } from '../utils.js';
 
 export function bubbleSort(arr, stats) {
   stats.setStartTime();
 
-  let size = arr.length;
+  const size = arr.length;
   for (let i = 0; i < size - 1; i++) {
     for (let j = 0; j < size - i - 1; j++) {
       stats.incIterations();
