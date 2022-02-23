@@ -15,15 +15,18 @@ export class Heap {
     const left = 2 * pos + 1;
     const right = 2 * pos + 2;
 
+    // No children.
     if (left > n) {
       return;
     }
 
+    // Left child only.
     if (left < n && right >= n) {
       if (this.#array[pos] > this.#array[left]) {
         swap(this.#array, pos, left);
         this.bubbleDown(left);
       }
+      // Both children.
     } else {
       let smaller;
       if (this.#array[left] < this.#array[right]) {
