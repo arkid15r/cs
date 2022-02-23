@@ -5,7 +5,9 @@
     }
   ],
   "settings": {
-    "prettier.singleQuote": true
+    "prettier.singleQuote": true,
+    "typescript.preferences.importModuleSpecifierEnding": "index",
+    "typescript.preferences.importModuleSpecifier": "non-relative"
   },
   "runtimeExecutalble": "/Users/ark/edu/env/bin/node"
 }
