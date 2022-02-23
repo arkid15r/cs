@@ -9,11 +9,27 @@ export class Heap {
     this.#array = array;
   }
 
+  #getLeftPos(pos) {
+    return 2 * pos + 1;
+  }
+
+  #getParentPos(pos) {
+    if (pos % 2) {
+      return parseInt(pos / 2);
+    }
+
+    return parseInt(pos / 2) - 1;
+  }
+
+  #getRightPos(pos) {
+    return 2 * pos + 2;
+  }
+
   bubbleDown(pos) {
     const n = this.#array.length;
 
-    const left = 2 * pos + 1;
-    const right = 2 * pos + 2;
+    const left = this.#getLeftPos(pos);
+    const right = this.#getRightPos(pos);
 
     // No children.
     if (left > n) {
@@ -45,15 +61,47 @@ export class Heap {
     if (pos == 0) {
       return;
     }
+    const parent = this.#getParentPos(pos);
 
-    const parent = parseInt(pos / 2);
     if (this.#array[parent] > this.#array[pos]) {
       swap(this.#array, parent, pos);
       this.bubbleUp(parent);
     }
   }
 
+  delete(pos) {
+    if (pos < 0 || pos > this.#array.length - 1) {
+      return;
+    }
+
+    const item = this.#array.pop();
+    const length = this.#array.length;
+    if (length && pos < length) {
+      this.#array[pos] = item;
+    }
+
+    const parent = this.#getParentPos(pos);
+    const left = this.#getLeftPos(pos);
+    const right = this.#getRightPos(pos);
+
+    if (
+      (left < length && item > this.#array[left]) ||
+      (right < length && item > this.#array[right])
+    ) {
+      this.bubbleDown(pos);
+    }
+
+    if (parent > 0 && item < this.#array[parent]) {
+      this.bubbleUp(pos);
+    }
+  }
+
   getArray() {
     return this.#array;
+  }
+
+  insert(item) {
+    this.#array.push(item);
+    this.bubbleUp(this.#array.length - 1);
   }
 }
