@@ -12,6 +12,6 @@ set -e
 echo -ne "\nRunning tests\n\n"
 
 source ./env/bin/activate
-yarn test **/test_*.js
+yarn test **/test_*.ts
 
 echo -ne "\n"
