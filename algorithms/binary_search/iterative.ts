@@ -14,7 +14,7 @@ export function binarySearch(array, item) {
   right = last;
 
   while (left <= right) {
-    mid = parseInt((left + right) / 2);
+    mid = Math.floor((left + right) / 2);
     if (item == array[mid]) {
       return true;
     }

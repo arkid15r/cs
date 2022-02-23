@@ -1,8 +1,8 @@
-import chai from 'chai';
+import {should as _should} from 'chai';
 
-import { Heap } from './main.js';
+import { Heap } from './main';
 
-const should = chai.should(); // eslint-disable-line no-unused-vars
+const should = _should(); // eslint-disable-line no-unused-vars
 
 describe('Heap', function () {
 	describe('bubbleDown', () => {
@@ -21,7 +21,7 @@ describe('Heap', function () {
 			heap.bubbleDown(1);
 			heap.getArray().toString().should.be.equal(expectedHeap.toString());
 
-			heap.bubbleDown(parseInt(expectedHeap.length / 2));
+			heap.bubbleDown(Math.floor(expectedHeap.length / 2));
 			heap.getArray().toString().should.be.equal(expectedHeap.toString());
 		});
 
@@ -66,7 +66,7 @@ describe('Heap', function () {
 			heap.bubbleUp(1);
 			heap.getArray().toString().should.be.equal(expectedHeap.toString());
 
-			heap.bubbleUp(parseInt(expectedHeap.length / 2));
+			heap.bubbleUp(Math.floor(expectedHeap.length / 2));
 			heap.getArray().toString().should.be.equal(expectedHeap.toString());
 		});
 

@@ -1,4 +1,4 @@
-import { binarySearch as binarySearchIterative } from "./iterative.js";
+import { binarySearch as binarySearchIterative } from "./iterative";
 
 const array = [0, 1, 2, 3, 4, 5, 6, 7];
 

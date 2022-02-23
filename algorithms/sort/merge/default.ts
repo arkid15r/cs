@@ -2,7 +2,7 @@
 
 /* eslint-disable require-jsdoc */
 
-import { swap } from '../utils.js';
+import { swap } from '../utils';
 
 export function mergeSort(array, stats) {
   function copyArray(src, dst, left, right) {

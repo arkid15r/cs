@@ -1,6 +1,6 @@
 /* Merge sort. */
 
-export function mergeSort(array, stats) {
+export function mergeSort(array, stats?) {
   if (array.length < 2) {
     return;
   }

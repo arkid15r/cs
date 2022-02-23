@@ -1,8 +1,8 @@
-import chai from 'chai';
+import {should as _should} from 'chai';
 
-import { sym, symmetricDifference } from './main.js';
+import { sym, symmetricDifference } from './main';
 
-const should = chai.should(); // eslint-disable-line no-unused-vars
+const should = _should(); // eslint-disable-line no-unused-vars
 
 describe('Test', function () {
   describe('Symmetric Difference', () => {

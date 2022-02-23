@@ -15,10 +15,10 @@ export class Heap {
 
 	#getParentPos(pos) {
 		if (pos % 2) {
-			return parseInt(pos / 2);
+			return Math.floor(pos / 2);
 		}
 
-		return parseInt(pos / 2) - 1;
+		return Math.floor(pos / 2) - 1;
 	}
 
 	#getRightPos(pos) {
@@ -102,7 +102,7 @@ export class Heap {
 
 	heapify(arr) {
 		this.#array = arr;
-		for (let i = parseInt(this.#array.length / 2); i >= 0; i--) {
+		for (let i = Math.floor(this.#array.length / 2); i >= 0; i--) {
 			this.bubbleDown(i);
 		}
 	}
