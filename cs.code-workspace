@@ -14,5 +14,5 @@
     "eslint.lintTask.options": "--ext js,ts --fix .",
     "eslint.execArgv": []
   },
-  "runtimeExecutalble": "/Users/ark/edu/env/bin/node"
+  "runtimeExecutalble": "./env/bin/node"
 }
