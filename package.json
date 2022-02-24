@@ -2,8 +2,11 @@
   "dependencies": {
     "@types/chai": "^4.3.0",
     "@types/mocha": "^9.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.12.1",
+    "@typescript-eslint/parser": "^5.12.1",
     "chai": "^4.3.6",
     "commonjs": "^0.0.1",
+    "eslint-plugin-import": "^2.25.4",
     "mocha": "^9.2.1",
     "ts-node": "^10.5.0",
     "tsconfig-paths": "^3.12.0",
@@ -12,8 +15,9 @@
     "yarn": "^1.22.17"
   },
   "scripts": {
-    "lint": "./node_modules/.bin/eslint",
-    "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register -r tsconfig-paths/register"
+    "lint": "./node_modules/.bin/eslint . --ext .ts",
+    "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register -r tsconfig-paths/register",
+    "test:all": "yarn test **/test_*.ts"
   },
   "devDependencies": {
     "eslint": "^8.9.0",

@@ -1,20 +1,24 @@
 /* Merge sort. */
 
-export function mergeSort(array, stats?) {
+/* eslint-disable require-jsdoc */
+
+import { Stats } from 'utils/stats';
+
+export function mergeSort(array, stats?: Stats) {
   if (array.length < 2) {
     return;
   }
 
-  let mid = Math.floor(array.length / 2);
-  let left = array.slice(0, mid);
-  let right = array.slice(mid, array.length);
+  const mid = Math.floor(array.length / 2);
+  const left = array.slice(0, mid);
+  const right = array.slice(mid, array.length);
 
   mergeSort(left);
   mergeSort(right);
 
-  let l = 0,
-    r = 0,
-    k = 0;
+  let l = 0;
+  let r = 0;
+  let k = 0;
 
   while (l < left.length && r < right.length) {
     if (left[l] < right[r]) {

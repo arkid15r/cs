@@ -1,8 +1,11 @@
 /* eslint-disable require-jsdoc */
 
-export function symmetricDifference(array1, array2) {
-  array1.sort((a, b) => a - b);
-  array2.sort((a, b) => a - b);
+export function symmetricDifference(
+  array1: Array<number>,
+  array2: Array<number>
+) {
+  array1.sort((a: number, b: number) => a - b);
+  array2.sort((a: number, b: number) => a - b);
 
   const diff = [];
   let i = 0;
@@ -51,8 +54,9 @@ export function symmetricDifference(array1, array2) {
   return diff;
 }
 
-export function sym(...args) {
+export function sym(...args: Array<Array<number>>) {
   const arrays = args;
+
   let a1 = arrays[0];
   for (let i = 1; i < arrays.length; i++) {
     a1 = symmetricDifference(a1, arrays[i]);

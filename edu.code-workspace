@@ -7,7 +7,12 @@
   "settings": {
     "prettier.singleQuote": true,
     "typescript.preferences.importModuleSpecifierEnding": "index",
-    "typescript.preferences.importModuleSpecifier": "non-relative"
+    "typescript.preferences.importModuleSpecifier": "non-relative",
+    "eslint.alwaysShowStatus": true,
+    "eslint.format.enable": true,
+    "eslint.packageManager": "yarn",
+    "eslint.lintTask.options": "--ext js,ts --fix .",
+    "eslint.execArgv": []
   },
   "runtimeExecutalble": "/Users/ark/edu/env/bin/node"
 }

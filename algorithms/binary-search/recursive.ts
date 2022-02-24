@@ -14,8 +14,6 @@ export function binarySearch(array, item) {
     } else {
       return search(array, item, mid + 1, right);
     }
-
-    return false;
   }
 
   if (item < array[0] || item > array[array.length - 1]) {

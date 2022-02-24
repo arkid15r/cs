@@ -1,10 +1,13 @@
 /* Bubble sort. */
 
-import { swap } from 'algorithms/sort/utils';
+/* eslint-disable require-jsdoc */
 
-export function bubbleSort(array: number[], stats?) {
+import { swap } from 'utils/data';
+import { Stats } from 'utils/stats';
+
+export function bubbleSort(array: number[], stats?: Stats) {
   const size: number = array.length;
-  const test = array[array.length];
+
   for (let i = 0; i < size - 1; i++) {
     for (let j = 0; j < size - i - 1; j++) {
       if (array[j] > array[j + 1]) {
