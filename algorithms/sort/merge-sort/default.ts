@@ -3,15 +3,26 @@
 /* eslint-disable require-jsdoc */
 
 import { swap } from 'utils/data';
+import { Stats } from 'utils/stats';
 
-export function mergeSort(array, stats) {
-  function copyArray(src, dst, left, right) {
+export function mergeSort(array: Array<number>, stats?: Stats): void {
+  function copyArray(
+    src: Array<number>,
+    dst: Array<number>,
+    left: number,
+    right: number
+  ): void {
     for (let i = left; i <= right; i++) {
       dst[i] = src[i - left];
     }
   }
 
-  function merge(array, left, mid, right) {
+  function merge(
+    array: Array<number>,
+    left: number,
+    mid: number,
+    right: number
+  ): void {
     // if (left > mid || mid > right) {
     //   return;
     // }
@@ -19,7 +30,7 @@ export function mergeSort(array, stats) {
     let p1 = left;
     let p2 = mid + 1;
 
-    const res = [];
+    const res = new Array<number>();
     while (p1 <= mid || p2 <= right) {
       if (p1 <= mid && p2 <= right) {
         if (array[p1] <= array[p2]) {
@@ -41,7 +52,7 @@ export function mergeSort(array, stats) {
     copyArray(res, array, left, right);
   }
 
-  function divide(left, right) {
+  function divide(left: number, right: number): void {
     if (left == right) {
       return;
     } else if (left + 1 == right) {

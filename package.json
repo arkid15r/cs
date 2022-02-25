@@ -16,15 +16,16 @@
     "universal-perf-hooks": "^1.0.1",
     "yarn": "^1.22.17"
   },
-  "scripts": {
-    "lint": "./node_modules/.bin/eslint . --ext .ts",
-    "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register -r tsconfig-paths/register",
-    "test:all": "yarn test **/test_*.ts"
-  },
   "devDependencies": {
     "eslint": "^8.9.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.4.0",
     "eslint-plugin-prettier": "^4.0.0"
+  },
+  "private": true,
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint . --ext .ts",
+    "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register -r tsconfig-paths/register",
+    "test:all": "yarn test **/test_*.ts"
   }
 }

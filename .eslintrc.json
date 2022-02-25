@@ -4,21 +4,30 @@
     "node": true,
     "es2021": true
   },
-  "extends": ["google", "prettier", "eslint:recommended"],
+  "extends": [
+    "google",
+    "prettier",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
   "parserOptions": {
     "ecmaVersion": "latest",
+    "project": ["./tsconfig.json"],
     "sourceType": "module"
   },
   "rules": {
+    "@typescript-eslint/explicit-function-return-type": ["error"],
+    "@typescript-eslint/explicit-member-accessibility": ["error"],
+    "@typescript-eslint/no-unsafe-argument": ["error"],
     "no-undef": 0,
     "sort-imports": [
       "error",
       {
         "ignoreCase": false,
         "ignoreDeclarationSort": true,
-        "ignoreMemberSort": false,
+        "ignoreMemberSort": true,
         "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
         "allowSeparatedGroups": true
       }

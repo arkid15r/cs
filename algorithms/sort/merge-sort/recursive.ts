@@ -4,7 +4,7 @@
 
 import { Stats } from 'utils/stats';
 
-export function mergeSort(array, stats?: Stats) {
+export function mergeSort(array: Array<number>, stats?: Stats): void {
   if (array.length < 2) {
     return;
   }
@@ -30,12 +30,12 @@ export function mergeSort(array, stats?: Stats) {
     }
     k++;
   }
-  while (l < mid) {
+  while (l < left.length) {
     array[k] = left[l];
     l++;
     k++;
   }
-  while (r < right) {
+  while (r < right.length) {
     array[k] = right[r];
     r++;
     k++;

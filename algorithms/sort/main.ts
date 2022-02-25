@@ -1,9 +1,10 @@
 /* eslint-disable require-jsdoc */
 
-import { random100K, sortedAsc100K, sortedDesc100K } from 'data/int/main';
+import { isEqual } from 'lodash';
+import { random100K, sortedAsc100K, sortedDesc100K } from 'testdata/int/main';
 import { Stats } from 'utils/stats';
 
-function verify(sorted, original) {
+function verify(sorted: Array<number>, original: Array<number>): void {
   if (original.length != sorted.length) {
     console.log(
       "Sorted array's length isn't equal to unsorted array's length."
@@ -12,16 +13,16 @@ function verify(sorted, original) {
   }
 
   original.sort((a: number, b: number) => a - b);
-  if (original.toString() != sorted.toString()) {
+  if (!isEqual(original, sorted)) {
     console.log(`Array wasn't sorted properly: ${sorted}`);
     return;
   }
 }
 
-export function run(sorter) {
-  let array;
-  let original;
-  let stats;
+export function run(sorter: (arr: Array<number>, stats?: Stats) => void): void {
+  let array: Array<number>;
+  let original: Array<number>;
+  let stats: Stats;
 
   array = Array.from(random100K);
   original = Array.from(random100K);

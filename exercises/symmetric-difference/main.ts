@@ -3,7 +3,7 @@
 export function symmetricDifference(
   array1: Array<number>,
   array2: Array<number>
-) {
+): Array<number> {
   array1.sort((a: number, b: number) => a - b);
   array2.sort((a: number, b: number) => a - b);
 
@@ -54,7 +54,7 @@ export function symmetricDifference(
   return diff;
 }
 
-export function sym(...args: Array<Array<number>>) {
+export function sym(...args: Array<Array<number>>): Array<number> {
   const arrays = args;
 
   let a1 = arrays[0];
