@@ -3,112 +3,126 @@ import { swap } from 'utils/data';
 /* eslint-disable require-jsdoc */
 
 export class Heap {
-  #array;
+	#array;
+	#size;
 
-  constructor(array) {
-    this.#array = array;
-  }
+	constructor(array) {
+		this.#array = array;
+		this.#size = array.length;
+	}
 
-  #getLeftPos(pos) {
-    return 2 * pos + 1;
-  }
+	#getLeftPos(pos) {
+		return 2 * pos + 1;
+	}
 
-  #getParentPos(pos) {
-    if (pos % 2) {
-      return Math.floor(pos / 2);
-    }
+	#getParentPos(pos) {
+		if (pos % 2) {
+			return Math.floor(pos / 2);
+		}
 
-    return Math.floor(pos / 2) - 1;
-  }
+		return Math.floor(pos / 2) - 1;
+	}
 
-  #getRightPos(pos) {
-    return 2 * pos + 2;
-  }
+	#getRightPos(pos) {
+		return 2 * pos + 2;
+	}
 
-  bubbleDown(pos) {
-    const n = this.#array.length;
+	bubbleDown(pos) {
+		const n = this.#size;
+		if (pos >= n) {
+			return;
+		}
 
-    const left = this.#getLeftPos(pos);
-    const right = this.#getRightPos(pos);
+		const left = this.#getLeftPos(pos);
+		const right = this.#getRightPos(pos);
 
-    // No children.
-    if (left > n) {
-      return;
-    }
+		// No children.
+		if (left > n) {
+			return;
+		}
 
-    // Left child only.
-    if (left < n && right >= n) {
-      if (this.#array[pos] > this.#array[left]) {
-        swap(this.#array, pos, left);
-        this.bubbleDown(left);
-      }
-      // Both children.
-    } else {
-      let smaller;
-      if (this.#array[left] < this.#array[right]) {
-        smaller = left;
-      } else {
-        smaller = right;
-      }
-      if (this.#array[pos] > this.#array[smaller]) {
-        swap(this.#array, pos, smaller);
-        this.bubbleDown(smaller);
-      }
-    }
-  }
+		// Left child only.
+		if (left < n && right >= n) {
+			if (this.#array[pos] > this.#array[left]) {
+				swap(this.#array, pos, left);
+				this.bubbleDown(left);
+			}
+			// Both children.
+		} else {
+			let smaller;
+			if (this.#array[left] < this.#array[right]) {
+				smaller = left;
+			} else {
+				smaller = right;
+			}
+			if (this.#array[pos] > this.#array[smaller]) {
+				swap(this.#array, pos, smaller);
+				this.bubbleDown(smaller);
+			}
+		}
+	}
 
-  bubbleUp(pos) {
-    if (pos == 0) {
-      return;
-    }
-    const parent = this.#getParentPos(pos);
+	bubbleUp(pos) {
+		if (pos == 0) {
+			return;
+		}
+		const parent = this.#getParentPos(pos);
 
-    if (this.#array[parent] > this.#array[pos]) {
-      swap(this.#array, parent, pos);
-      this.bubbleUp(parent);
-    }
-  }
+		if (this.#array[parent] > this.#array[pos]) {
+			swap(this.#array, parent, pos);
+			this.bubbleUp(parent);
+		}
+	}
 
-  delete(pos) {
-    if (pos < 0 || pos > this.#array.length - 1) {
-      return;
-    }
+	delete(pos) {
+		if (pos < 0 || pos > this.#size - 1) {
+			return;
+		}
+		const value = this.#array[pos];
+		const item = this.#array[this.#size - 1];
+		this.#size--;
 
-    const item = this.#array.pop();
-    const length = this.#array.length;
-    if (length && pos < length) {
-      this.#array[pos] = item;
-    }
+		if (this.#size && pos < this.#size) {
+			this.#array[pos] = item;
+		}
 
-    const parent = this.#getParentPos(pos);
-    const left = this.#getLeftPos(pos);
-    const right = this.#getRightPos(pos);
+		const parent = this.#getParentPos(pos);
+		const left = this.#getLeftPos(pos);
+		const right = this.#getRightPos(pos);
 
-    if (
-      (left < length && item > this.#array[left]) ||
-      (right < length && item > this.#array[right])
-    ) {
-      this.bubbleDown(pos);
-    }
+		if (
+			(left < this.#size && item > this.#array[left]) ||
+			(right < this.#size && item > this.#array[right])
+		) {
+			this.bubbleDown(pos);
+		}
 
-    if (parent > 0 && item < this.#array[parent]) {
-      this.bubbleUp(pos);
-    }
-  }
+		if (parent > 0 && item < this.#array[parent]) {
+			this.bubbleUp(pos);
+		}
 
-  getArray() {
-    return this.#array;
-  }
+		return value;
+	}
 
-  heapify(arr) {
-    this.#array = arr;
-    for (let i = Math.floor(this.#array.length / 2); i >= 0; i--) {
-      this.bubbleDown(i);
-    }
-  }
+	getArray() {
+		return this.#array.slice(0, this.#size);
+	}
 
-  insert(item) {
-    this.#array.push(item);
-    this.bubbleUp(this.#array.length - 1);
-  }
+	getSize() {
+		return this.#size;
+	}
+
+	insert(item) {
+		this.#array.push(item);
+		this.#size++;
+		this.bubbleUp(this.#size - 1);
+	}
+
+	push(item) {
+		this.#array[this.#array.length - this.#size - 1] = item;
+	}
+
+	toString() {
+		return this.#array.toString();
+	}
 }
