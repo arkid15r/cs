@@ -11,8 +11,7 @@
     "eslint.alwaysShowStatus": true,
     "eslint.format.enable": true,
     "eslint.packageManager": "yarn",
-    "eslint.lintTask.options": "--ext js,ts --fix .",
-    "eslint.execArgv": []
+    "eslint.lintTask.options": "--ext js,ts --fix ."
   },
   "runtimeExecutalble": "./env/bin/node"
 }

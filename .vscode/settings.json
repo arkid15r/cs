@@ -2,5 +2,11 @@
   "files.exclude": {
     "**/*.js": { "when": "$(basename).ts" }
   },
-  "cSpell.words": ["heapify"]
+  "cSpell.words": ["heapify"],
+  "code-runner.executorMapByGlob": {
+    "test_*.ts": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' ./node_modules/.bin/mocha -r ts-node/register -r tsconfig-paths/register",
+    "*.ts": "./node_modules/.bin/ts-node -r tsconfig-paths/register"
+  },
+  "mochaExplorer.require": ["ts-node/register", "tsconfig-paths/register"],
+  "mochaExplorer.files": "**/test_*.ts"
 }
