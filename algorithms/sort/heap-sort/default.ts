@@ -1,4 +1,4 @@
-/* Merge sort. */
+/* Heap sort. */
 
 /* eslint-disable require-jsdoc */
 
@@ -30,11 +30,9 @@ export function heapify(arr: Array<number>) {
 }
 
 export function heapSort(arr) {
-	let size = arr.length;
-
 	heapify(arr);
 
-	for (let i = size - 1; i > 0; i--) {
+	for (let i = arr.length - 1; i > 0; i--) {
 		swap(arr, i, 0);
 		bubbleDown(arr, i, 0);
 	}
