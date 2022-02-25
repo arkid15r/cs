@@ -1,0 +1,16 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "prettier.singleQuote": true,
+    "typescript.preferences.importModuleSpecifierEnding": "index",
+    "typescript.preferences.importModuleSpecifier": "non-relative",
+    "cSpell.words": [
+      "heapify"
+    ]
+  },
+  "runtimeExecutalble": "/Users/ark/edu/env/bin/node"
+}
