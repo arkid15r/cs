@@ -1,7 +1,7 @@
 /* eslint-disable require-jsdoc */
 
-export function binarySearch(array, item) {
-  function search(array, item, left, right) {
+export function binarySearch(array, item): boolean {
+  function search(array, item, left, right): boolean {
     if (left > right) {
       return false;
     }

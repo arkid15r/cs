@@ -4,22 +4,26 @@
 
 import { swap } from 'utils/data';
 
-export function bubbleDown(arr: Array<number>, n: number, i: number): void {
-  let largest = i;
-  const leftChild = 2 * i + 1;
-  const rightChild = 2 * i + 2;
+export function bubbleDown(
+  array: Array<number>,
+  size: number,
+  position: number
+): void {
+  let largest = position;
+  const leftChild = 2 * position + 1;
+  const rightChild = 2 * position + 2;
 
-  if (leftChild < n && arr[leftChild] > arr[largest]) {
+  if (leftChild < size && array[leftChild] > array[largest]) {
     largest = leftChild;
   }
 
-  if (rightChild < n && arr[rightChild] > arr[largest]) {
+  if (rightChild < size && array[rightChild] > array[largest]) {
     largest = rightChild;
   }
 
-  if (largest != i) {
-    swap(arr, i, largest);
-    bubbleDown(arr, n, largest);
+  if (largest != position) {
+    swap(array, position, largest);
+    bubbleDown(array, size, largest);
   }
 }
 
