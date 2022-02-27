@@ -11,7 +11,9 @@
     "eslint.alwaysShowStatus": true,
     "eslint.format.enable": true,
     "eslint.packageManager": "yarn",
-    "eslint.lintTask.options": "--ext js,ts --fix ."
+    "eslint.lintTask.options": "--ext js,ts --fix .",
+    "go.inferGopath": true,
+    "code-runner.cwd": "${workspaceFolder}"
   },
   "runtimeExecutalble": "./env/bin/node"
 }

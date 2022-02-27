@@ -1,7 +1,8 @@
 import { should as _should } from 'chai';
 import { Heap } from 'data-structures/heap/main';
 
-const should = _should(); // eslint-disable-line no-unused-vars
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const should = _should();
 
 describe('Heap', function () {
   describe('bubbleDown', () => {
@@ -160,8 +161,8 @@ describe('Heap', function () {
 
   describe('insert', () => {
     it('should take a right place in an empty heap', () => {
-      const originalHeap = [];
-      const expectedHeap = [1];
+      const originalHeap: Array<number> = [];
+      const expectedHeap: Array<number> = [1];
       const heap = new Heap(originalHeap);
       heap.insert(1);
       heap.getArray().toString().should.be.equal(expectedHeap.toString());

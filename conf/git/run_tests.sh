@@ -11,7 +11,9 @@ set -e
 # let's fake failing test for now
 echo -ne "\nRunning tests\n\n"
 
+go test -v ./...
+
 source ./env/bin/activate
-yarn test **/test_*.ts
+yarn test **/*_test.ts
 
 echo -ne "\n"

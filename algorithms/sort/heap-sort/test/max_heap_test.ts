@@ -1,5 +1,5 @@
 import { heapify, heapSort } from 'algorithms/sort/heap-sort/max_heap';
-import { runHeapSortTests } from 'algorithms/sort/heap-sort/tests/common';
+import { runHeapSortTests } from 'algorithms/sort/heap-sort/test/common';
 import { assert } from 'chai';
 import { isEqual } from 'lodash';
 

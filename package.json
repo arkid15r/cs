@@ -26,6 +26,6 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint . --ext .ts",
     "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register -r tsconfig-paths/register",
-    "test:all": "yarn test **/test_*.ts"
+    "test:all": "yarn test **/*_test.ts"
   }
 }

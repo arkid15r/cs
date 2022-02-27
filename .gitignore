@@ -3,5 +3,6 @@
 *.ipynb
 env
 node_modules
+pkg
 venv
 yarn-error.log

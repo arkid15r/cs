@@ -49,7 +49,7 @@ export class Heap {
       }
       // Both children.
     } else {
-      let smaller;
+      let smaller: number;
       if (this.array[left] < this.array[right]) {
         smaller = left;
       } else {
@@ -122,7 +122,7 @@ export class Heap {
     this.array[this.array.length - this.size - 1] = item;
   }
 
-  public toString(): String {
+  public toString(): string {
     return this.array.toString();
   }
 }

@@ -4,9 +4,26 @@
   },
   "cSpell.words": ["heapify"],
   "code-runner.executorMapByGlob": {
-    "test_*.ts": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' ./node_modules/.bin/mocha -r ts-node/register -r tsconfig-paths/register",
-    "*.ts": "./node_modules/.bin/ts-node -r tsconfig-paths/register"
+    "*_test.ts": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' ./node_modules/.bin/mocha -r ts-node/register -r tsconfig-paths/register",
+    "*.ts": "./node_modules/.bin/ts-node -r tsconfig-paths/register",
+    "*_test.go": "go test -v"
   },
+  "code-runner.cwd": "${workspaceFolder}",
+  "code-runner.fileDirectoryAsCwd": false,
+  "code-runner.preserveFocus": false,
+  "code-runner.runInTerminal": true,
   "mochaExplorer.require": ["ts-node/register", "tsconfig-paths/register"],
-  "mochaExplorer.files": "**/test_*.ts"
+  "mochaExplorer.files": "**/*_test.ts",
+  // "go.toolsEnvVars": {
+  //   "GO111MODULE": "on"
+  // },
+  "go.formatTool": "goimports",
+  "go.lintTool": "golangci-lint",
+  "go.alternateTools": {
+    "golangci-lint": "${workspaceFolder}/bin/golangci-lint"
+  },
+  "go.lintFlags": [
+    "--fast"
+  ],
+  "go.inferGopath": false
 }

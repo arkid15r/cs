@@ -4,7 +4,8 @@ import { assert, should as _should } from 'chai';
 import { sym, symmetricDifference } from 'exercises/symmetric-difference/main';
 import { isEqual } from 'lodash';
 
-const should = _should(); // eslint-disable-line no-unused-vars
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const should = _should();
 
 describe('Symmetric Difference', () => {
   it('should return empty array for identical arrays', () => {
