@@ -3,7 +3,7 @@ import {
   heapify,
   heapSort,
 } from 'algorithms/sort/heap-sort/min_heap';
-import { runHeapSortTests } from 'algorithms/sort/heap-sort/test/common';
+import { runSortTests } from 'algorithms/sort/test/common';
 import { assert } from 'chai';
 import { isEqual } from 'lodash';
 
@@ -67,5 +67,5 @@ describe('Min Heap Sort', function () {
       assert.isTrue(isEqual(unsortedArray, expectedArray));
     });
   });
-  runHeapSortTests(heapSort);
+  runSortTests('Min Heap Sort', heapSort);
 });

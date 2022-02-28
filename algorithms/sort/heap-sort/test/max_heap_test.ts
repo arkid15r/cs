@@ -1,5 +1,5 @@
 import { heapify, heapSort } from 'algorithms/sort/heap-sort/max_heap';
-import { runHeapSortTests } from 'algorithms/sort/heap-sort/test/common';
+import { runSortTests } from 'algorithms/sort/test/common';
 import { assert } from 'chai';
 import { isEqual } from 'lodash';
 
@@ -34,5 +34,5 @@ describe('Max Heap Sort', function () {
     });
   });
 
-  runHeapSortTests(heapSort);
+  runSortTests('Max Heap Sort', heapSort);
 });
