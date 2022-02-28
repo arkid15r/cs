@@ -5,7 +5,7 @@
 import { swap } from 'utils/data';
 import { Stats } from 'utils/stats';
 
-export function bubbleSort(array: number[], stats?: Stats) {
+export function bubbleSort(array: Array<number>, stats?: Stats): void {
   const size: number = array.length;
 
   for (let i = 0; i < size - 1; i++) {

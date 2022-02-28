@@ -4,5 +4,6 @@
 env
 node_modules
 pkg
+exercise*.ts
 venv
 yarn-error.log
