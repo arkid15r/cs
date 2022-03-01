@@ -1,10 +1,6 @@
 import { swap } from 'utils/data';
 
-export function lomutoPartition(
-	array: Array<number>,
-	l: number,
-	r: number
-): number {
+export function _partition(array: Array<number>, l: number, r: number): number {
 	let pivot: number = r;
 	let i: number = l - 1;
 
@@ -25,7 +21,7 @@ export function quickSelect(
 	r: number,
 	k: number
 ): number {
-	let partition: number = lomutoPartition(array, l, r);
+	let partition: number = _partition(array, l, r);
 	if (k - 1 == partition) {
 		return array[partition];
 	} else if (k - 1 > partition) {
