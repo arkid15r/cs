@@ -1,4 +1,4 @@
-/* Partition for Quick sort. */
+/* Quick sort. */
 
 /* eslint-disable require-jsdoc */
 
@@ -19,11 +19,15 @@ export function partition(array: Array<number>, l: number, r: number): number {
 	return i + 1;
 }
 
-export function quickSort(array: Array<number>, l: number, r: number): void {
-	if (l < r) {
-		let p: number = partition(array, l, r);
+export function quickSort(array: Array<number>): void {
+	function search(array: Array<number>, l: number, r: number): void {
+		if (l < r) {
+			let p: number = partition(array, l, r);
 
-		quickSort(array, l, p - 1);
-		quickSort(array, p + 1, r);
+			search(array, l, p - 1);
+			search(array, p + 1, r);
+		}
 	}
+
+	search(array, 0, array.length - 1);
 }
