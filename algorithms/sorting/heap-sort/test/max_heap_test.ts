@@ -9,31 +9,33 @@ describe('Max Heap Sort', function () {
       const expectedArray = [0];
       const originalArray = [0];
 
-      heapify(originalArray);
+      heapify(originalArray, originalArray.length, 0);
       assert.isTrue(isEqual(expectedArray, originalArray));
     });
 
-    it('should not change correct heap', () => {
-      const expectedArray = [35, 19, 25, 14, 18, 15, 11, 13, 12, 10, 17, 1];
-      const originalArray = [1, 10, 11, 12, 17, 15, 35, 13, 14, 18, 19, 25];
+    it('should not change a correct heap', () => {
+      const expectedArray = [3, 0];
+      const originalArray = [3, 0];
 
-      heapify(originalArray);
+      heapify(originalArray, originalArray.length, 0);
       assert.isTrue(isEqual(expectedArray, originalArray));
     });
 
     it('should create depth 2 heap', () => {
       const expectedArray = [35, 17, 15, 12, 10, 1, 11];
-      const originalArray = [35, 17, 15, 12, 10, 1, 11];
+      const originalArray = [17, 35, 15, 12, 10, 1, 11];
 
-      heapify(originalArray);
+      heapify(originalArray, originalArray.length, 0);
       assert.isTrue(isEqual(expectedArray, originalArray));
     });
 
     it('should create depth 3 heap', () => {
-      const expectedArray = [57, 45, 15, 35, 17, 3, 11, 2, 12, 2, 10, 1];
-      const originalArray = [35, 17, 15, 12, 10, 1, 11, 2, 45, 2, 57, 3];
+      const expectedArray = [57, 45, 17, 35, 10, 15, 11, 1, 2, 2, 10, 3];
+      const originalArray = [35, 57, 15, 1, 10, 17, 11, 45, 2, 2, 10, 3];
 
-      heapify(originalArray);
+      for (let i = Math.floor(originalArray.length / 2) - 1; i >= 0; i--) {
+        heapify(originalArray, originalArray.length, i);
+      }
       assert.isTrue(isEqual(expectedArray, originalArray));
     });
   });

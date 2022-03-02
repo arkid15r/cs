@@ -3,7 +3,7 @@ package main
 import (
 	"testing"
 
-	. "github.com/arkid15r/cs/algorithms/binary-search"
+	. "github.com/arkid15r/cs/algorithms/searching/binary-search"
 	. "github.com/franela/goblin"
 )
 

@@ -1,18 +1,18 @@
-/* Heap sort (min heap). */
+/* Min heap sort. */
 
 import { swap } from 'utils/data';
 
 /* eslint-disable require-jsdoc */
 
-export function bubbleDown(
+export function heapify(
   array: Array<number>,
   size: number,
   position: number
 ): void {
-  let smallest = position;
   const left = 2 * position + 1;
   const right = 2 * position + 2;
 
+  let smallest = position;
   if (left < size && array[left] < array[smallest]) {
     smallest = left;
   }
@@ -22,27 +22,22 @@ export function bubbleDown(
   }
 
   if (smallest != position) {
-    swap(array, smallest, position);
-    bubbleDown(array, size, smallest);
-  }
-}
-
-export function heapify(array: Array<number>): void {
-  for (let i = Math.floor(array.length / 2); i >= 0; i--) {
-    bubbleDown(array, array.length, i);
+    swap(array, position, smallest);
+    heapify(array, size, smallest);
   }
 }
 
 export function heapSort(array: Array<number>): void {
-  heapify(array);
-
-  const size = array.length;
-  for (let i = size - 1; i > 0; i--) {
-    swap(array, i, 0);
-    bubbleDown(array, i, 0);
+  for (let i = Math.floor(array.length / 2); i >= 0; i--) {
+    heapify(array, array.length, i);
   }
 
-  for (let i = 0; i < Math.floor(size / 2); i++) {
-    swap(array, i, size - i - 1);
+  for (let i = array.length - 1; i > 0; i--) {
+    swap(array, i, 0);
+    heapify(array, i, 0);
+  }
+
+  for (let i = 0; i < Math.floor(array.length / 2); i++) {
+    swap(array, i, array.length - i - 1);
   }
 }

@@ -5,7 +5,7 @@
 import { Stats } from 'utils/stats';
 
 export function mergeSort(array: Array<number>, stats?: Stats): void {
-  if (array.length < 2) {
+  if (array.length <= 1) {
     return;
   }
 
