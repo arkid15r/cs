@@ -1,43 +1,39 @@
-/* Heap sort. */
+/* Max heap sort. */
 
 /* eslint-disable require-jsdoc */
 
 import { swap } from 'utils/data';
 
-export function bubbleDown(
+export function heapify(
   array: Array<number>,
   size: number,
   position: number
 ): void {
-  let largest = position;
-  const leftChild = 2 * position + 1;
-  const rightChild = 2 * position + 2;
+  const left = 2 * position + 1;
+  const right = 2 * position + 2;
 
-  if (leftChild < size && array[leftChild] > array[largest]) {
-    largest = leftChild;
+  let largest = position;
+  if (left < size && array[left] > array[largest]) {
+    largest = left;
   }
 
-  if (rightChild < size && array[rightChild] > array[largest]) {
-    largest = rightChild;
+  if (right < size && array[right] > array[largest]) {
+    largest = right;
   }
 
   if (largest != position) {
     swap(array, position, largest);
-    bubbleDown(array, size, largest);
-  }
-}
-
-export function heapify(arr: Array<number>): void {
-  for (let i = Math.floor(arr.length / 2) - 1; i >= 0; i--) {
-    bubbleDown(arr, arr.length, i);
+    heapify(array, size, largest);
   }
 }
 
 export function heapSort(arr: Array<number>): void {
-  heapify(arr);
+  for (let i = Math.floor(arr.length / 2) - 1; i >= 0; i--) {
+    heapify(arr, arr.length, i);
+  }
 
   for (let i = arr.length - 1; i > 0; i--) {
     swap(arr, i, 0);
-    bubbleDown(arr, i, 0);
+    heapify(arr, i, 0);
   }
 }

@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	binary_search "github.com/arkid15r/cs/algorithms/binary-search"
+	binary_search "github.com/arkid15r/cs/algorithms/searching/binary-search"
 )
 
 func main() {
