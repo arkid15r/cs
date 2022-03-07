@@ -1,29 +1,32 @@
 {
-  "files.exclude": {
-    "**/*.js": { "when": "$(basename).ts" }
-  },
-  "cSpell.words": ["heapify"],
+  "code-runner.cwd": "${workspaceFolder}",
   "code-runner.executorMapByGlob": {
     "*_test.ts": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' ./node_modules/.bin/mocha -r ts-node/register -r tsconfig-paths/register",
     "*.ts": "./node_modules/.bin/ts-node -r tsconfig-paths/register",
     "*_test.go": "go test -v"
   },
-  "code-runner.cwd": "${workspaceFolder}",
   "code-runner.fileDirectoryAsCwd": false,
   "code-runner.preserveFocus": false,
   "code-runner.runInTerminal": true,
-  "mochaExplorer.require": ["ts-node/register", "tsconfig-paths/register"],
-  "mochaExplorer.files": "**/*_test.ts",
-  // "go.toolsEnvVars": {
-  //   "GO111MODULE": "on"
-  // },
-  "go.formatTool": "goimports",
-  "go.lintTool": "golangci-lint",
+  "cSpell.words": ["heapify"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true,
+    "source.sortMembers": true
+  },
+  "files.exclude": {
+    "**/*.js": { "when": "$(basename).ts" }
+  },
   "go.alternateTools": {
     "golangci-lint": "${workspaceFolder}/bin/golangci-lint"
   },
-  "go.lintFlags": [
-    "--fast"
-  ],
-  "go.inferGopath": false
+  "go.formatTool": "goimports",
+  "go.inferGopath": false,
+  "go.lintFlags": ["--fast"],
+  "go.lintTool": "golangci-lint",
+  "mochaExplorer.require": ["ts-node/register", "tsconfig-paths/register"],
+  "mochaExplorer.files": "**/*_test.ts",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
