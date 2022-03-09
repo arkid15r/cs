@@ -1,8 +1,8 @@
 /** Symmetric difference tests. */
 
 import { assert, should as _should } from 'chai';
-import { sym, symmetricDifference } from 'exercises/symmetric-difference/main';
 import { isEqual } from 'lodash';
+import { sym, symmetricDifference } from 'problems/symmetric-difference/main';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const should = _should();

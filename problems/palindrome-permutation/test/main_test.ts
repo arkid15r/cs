@@ -1,7 +1,7 @@
 /** Palindrome permutation tests. */
 
 import { assert } from 'chai';
-import { isPalindromePermutation } from 'exercises/palindrome-permutation/main';
+import { isPalindromePermutation } from 'problems/palindrome-permutation/main';
 
 describe('isPalindromePermutation', () => {
   it('should return false for an empty string', () => {
